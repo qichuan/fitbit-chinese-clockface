@@ -1,13 +1,32 @@
-// import document from "document";
-// import clock from "clock";
+import document from "document";
+import clock from "clock";
 
-// let myClock = document.getElementById("hour1");
+let hourNumber1 = document.getElementById("hour_num_1");
+let hourNumber2 = document.getElementById("hour_num_2");
+let minuteNumber1 = document.getElementById("minute_num_1");
+let minuteNumber2 = document.getElementById("minute_num_2");
 
-// clock.granularity = 'seconds'; // seconds, minutes, hours
+clock.granularity = 'minutes'; // seconds, minutes, hours
 
-// clock.ontick = function(evt) {
-//   myClock.text = ("0" + evt.date.getHours()).slice(-2) + ":" +
-//                       ("0" + evt.date.getMinutes()).slice(-2) + ":" +
-//                       ("0" + evt.date.getSeconds()).slice(-2);
-// };
-console.log("hello");
+clock.ontick = function(evt) {
+  
+    let hours = evt.date.getHours();
+    let minutes = evt.date.getMinutes();
+
+    let hoursText = ("0" + hours).slice(-2);
+    let minutesText = ("0" + minutes).slice(-2);
+
+    hourNumber1.href = numToImage(hoursText[0], true);
+    hourNumber2.href = numToImage(hoursText[1], true);
+    
+    minuteNumber1.href = numToImage(minutesText[0], false);
+    minuteNumber2.href = numToImage(minutesText[1], false);
+};
+
+function numToImage(num, bold) {
+    if (bold) {
+        return "img/bold_num_" + num + ".png";
+    } else {
+        return "img/light_num_" + num + ".png";
+    }
+}
