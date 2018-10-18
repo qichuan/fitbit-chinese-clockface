@@ -1,0 +1,11 @@
+#background {
+  width: 100%;
+  height: 100%;
+  fill: black;
+}
+
+.clockText {
+  width: 145;
+  height: 145;
+  fill: white
+}

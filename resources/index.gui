@@ -1,0 +1,9 @@
+<svg viewport-fill="black">
+  <defs>
+    <link rel="stylesheet" href="styles.css" />
+  </defs>
+  <image href="img/bold_num_1.png" x="0" y="0" class="clockText"/>
+  <image href="img/bold_num_1.png" x="150" y="0"  class="clockText"/>
+  <image href="img/light_num_1.png" x="0" y="150" class="clockText"/>
+  <image href="img/light_num_1.png" x="150" y="150" class="clockText"/>
+</svg>
