@@ -5,27 +5,27 @@
 }
 
 .clockText {
-  width: 120;
-  height: 120;
-  fill: white
+  width: 140;
+  height: 140;
+  fill: white;
 }
 
 #hour_num_1 {
-  x: 54;
-  y: 0
+  x: 5;
+  y: 5
 }
 
 #hour_num_2 {
-  x: 174;
-  y: 0
+  x: 155;
+  y: 5
 }
 
 #minute_num_1 {
-  x: 54;
-  y: 125;
+  x: 5;
+  y: 150;
 }
 
 #minute_num_2 {
-  x: 174;
-  y: 125;
+  x: 155;
+  y: 150;
 }

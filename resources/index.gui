@@ -2,8 +2,8 @@
   <defs>
     <link rel="stylesheet" href="styles.css" />
   </defs>
-  <image id="hour_num_1" href="img/bold_num_0.png" x="0" y="0" class="clockText"/>
-  <image id="hour_num_2" href="img/bold_num_0.png" x="150" y="0"  class="clockText"/>
-  <image id="minute_num_1" href="img/light_num_1.png" x="0" y="150" class="clockText"/>
-  <image id="minute_num_2" href="img/light_num_1.png" x="150" y="150" class="clockText"/>
+  <image id="hour_num_1" href="img/bold_num_0.png" class="clockText"/>
+  <image id="hour_num_2" href="img/bold_num_0.png" class="clockText"/>
+  <image id="minute_num_1" href="img/light_num_0.png" class="clockText"/>
+  <image id="minute_num_2" href="img/light_num_0.png" class="clockText"/>
 </svg>
