@@ -1,5 +1,6 @@
 import document from "document";
 import clock from "clock";
+import * as messaging from "messaging";
 
 let hourNumber1 = document.getElementById("hour_num_1");
 let hourNumber2 = document.getElementById("hour_num_2");
@@ -29,4 +30,11 @@ function numToImage(num, bold) {
     } else {
         return "img/light_num_" + num + ".png";
     }
+}
+
+messaging.peerSocket.onmessage = function(evt) {
+    hourNumber1.style.fill = evt.data.value;
+    hourNumber2.style.fill = evt.data.value;
+    minuteNumber1.style.fill = evt.data.value;
+    minuteNumber2.style.fill = evt.data.value;
 }
