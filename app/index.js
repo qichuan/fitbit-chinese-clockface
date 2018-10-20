@@ -5,7 +5,6 @@ import { calendar } from "./lunar_calendar";
 import { numToImage } from "./utils";
 import * as settings from "./settings";
 
-
 let timePage = document.getElementById("timePage");
 
 let lunarDateTextLine1 = document.getElementById("lunarDateTextLine1"); 
@@ -26,6 +25,10 @@ let minuteNumber1 = document.getElementById("minute_num_1");
 let minuteNumber2 = document.getElementById("minute_num_2");
 
 let months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+let UPDATE_INTERVAL = 86400000 //24 Hours
+
+var lastLunarCalculationDate = 0;
+var lunarDate = null;
 
 // Listen to clock tick event in one minute interval
 clock.granularity = 'minutes'; // seconds, minutes, hours
@@ -43,18 +46,33 @@ clock.ontick = function(evt) {
     minuteNumber2.href = numToImage(minutesText[1], false);
     
     let date = evt.date;
-    let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
-    lunarDateTextLine1.text = lunarDate.IMonthCn;
-    lunarDateTextLine2.text = lunarDate.IDayCn;
+    if (lastLunarCalculationDate == 0 
+        || lunarDate == null
+        // More than one day
+        || (date.getTime() - lastLunarCalculationDate.getTime() > UPDATE_INTERVAL)
+        // Just after midnight
+        || (hours == 0 && minutes == 0)) {
+        // Perform calculation
+        lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
+        console.log("Performed calculation at " + date);
+    }
 
-    lunarYearTextLine1.text = lunarDate.gzYear;
-    lunarYearTextLine2.text = lunarDate.Animal + "年";
+    if (lunarDate) {
+        lunarDateTextLine1.text = lunarDate.IMonthCn;
+        lunarDateTextLine2.text = lunarDate.IDayCn;
 
-    noramlWeekDay.text = lunarDate.ncWeek;
+        lunarYearTextLine1.text = lunarDate.gzYear;
+        lunarYearTextLine2.text = lunarDate.Animal + "年";
 
-    let normalDateString = ("0" + date.getDay()).slice(-2) + " " + months[date.getMonth()];
-    normalDateTextLine1.text = normalDateString;
-    normalDateTextLine2.text = date.getFullYear();
+        noramlWeekDay.text = lunarDate.ncWeek;
+
+        let normalDateString = ("0" + date.getDay()).slice(-2) + " " + months[date.getMonth()];
+        normalDateTextLine1.text = normalDateString;
+        normalDateTextLine2.text = date.getFullYear();
+
+        lastLunarCalculationDate = date;
+    }
+    
 };
 
 function changeClockNumberColor(newFillColor) {
