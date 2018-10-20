@@ -7,7 +7,8 @@
 .clockText {
   width: 120;
   height: 120;
-  fill: white
+  fill: white;
+  viewport-fill: black;
 }
 
 #hour_num_1 {

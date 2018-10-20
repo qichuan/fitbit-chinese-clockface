@@ -1,18 +1,23 @@
 import document from "document";
 import clock from "clock";
 import * as messaging from "messaging";
-import {calendar} from "./lunar_calendar";
+import { calendar } from "./lunar_calendar";
+import { numToImage } from "./utils";
 
+let timePage = document.getElementById("timePage");
+
+let lunarDateText = document.getElementById("lunarDateText"); 
+let lunarYearText = document.getElementById("lunarYearText");
+
+// The clock numbers
 let hourNumber1 = document.getElementById("hour_num_1");
 let hourNumber2 = document.getElementById("hour_num_2");
 let minuteNumber1 = document.getElementById("minute_num_1");
 let minuteNumber2 = document.getElementById("minute_num_2");
 
+// Listen to clock tick event in one minute interval
 clock.granularity = 'minutes'; // seconds, minutes, hours
-
 clock.ontick = function(evt) {
-  
-
     let hours = evt.date.getHours();
     let minutes = evt.date.getMinutes();
 
@@ -24,23 +29,29 @@ clock.ontick = function(evt) {
     
     minuteNumber1.href = numToImage(minutesText[0], false);
     minuteNumber2.href = numToImage(minutesText[1], false);
-
-    let date = evt.date;
+    
+    let date = Date.now();
     let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
-    console.log(lunarDate.gzYear);
+    lunarDateText.text = lunarDate.IMonthCn + lunarDate.IDayCn;
 };
 
-function numToImage(num, bold) {
-    if (bold) {
-        return "img/bold_num_" + num + ".png";
-    } else {
-        return "img/light_num_" + num + ".png";
-    }
-}
+// hourNumber1.onclick = function(e) {
+//     let date = Date.now();
+//     let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
+//     console.log(lunarDate.gzYear);
+//     lunarDateText.text = lunarDate.IMonthCn + lunarDate.IDayCn;
+//     setTimeout(function() {
+//         lunarDateText.text="";
+//     }, 2000);
+//     //lunarYearText.text = "戌";//lunarDate.gzYear + "["+ lunarDate.Animal + "]" + "年";
+//     //dateInstance.animate('enable');
+// }
 
+// Change clockface color when receiving message from companion
 messaging.peerSocket.onmessage = function(evt) {
-    hourNumber1.style.fill = evt.data.value;
-    hourNumber2.style.fill = evt.data.value;
-    minuteNumber1.style.fill = evt.data.value;
-    minuteNumber2.style.fill = evt.data.value;
+    let newFillColor = evt.data.value;
+    hourNumber1.style.fill = newFillColor;
+    hourNumber2.style.fill = newFillColor;
+    minuteNumber1.style.fill = newFillColor;
+    minuteNumber2.style.fill = newFillColor;
 }

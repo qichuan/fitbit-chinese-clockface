@@ -1,9 +1,39 @@
 <svg viewport-fill="black">
   <defs>
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="styles.css" />
   </defs>
-  <image id="hour_num_1" href="img/bold_num_0.png" class="clockText"/>
-  <image id="hour_num_2" href="img/bold_num_0.png" class="clockText"/>
-  <image id="minute_num_1" href="img/light_num_0.png" class="clockText"/>
-  <image id="minute_num_2" href="img/light_num_0.png" class="clockText"/>
+  
+  <!-- The clock face -->
+  <image id="hour_num_1" href="img/bold_num_0.png" class="clockImage" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+  </image>
+  <image id="hour_num_2" href="img/bold_num_0.png" class="clockImage" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+  </image>
+  <image id="minute_num_1" href="img/light_num_0.png" class="clockImage" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+  </image>
+  <image id="minute_num_2" href="img/light_num_0.png" class="clockImage" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+  </image>
+
+  <text id="lunarDateText">ABCD</text>
+  <text id="lunarYearText">ABCD</text>
+    
+  <!-- The date info !-->
+  <!-- <use id="dateInstance" href="#date" width="100%" height="100%" /> -->
+
 </svg>
