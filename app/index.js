@@ -3,6 +3,8 @@ import clock from "clock";
 import * as messaging from "messaging";
 import { calendar } from "./lunar_calendar";
 import { numToImage } from "./utils";
+import * as settings from "./settings";
+
 
 let timePage = document.getElementById("timePage");
 
@@ -55,11 +57,20 @@ clock.ontick = function(evt) {
     normalDateTextLine2.text = date.getFullYear();
 };
 
-// Change clockface color when receiving message from companion
-messaging.peerSocket.onmessage = function(evt) {
-    let newFillColor = evt.data.value;
+function changeClockNumberColor(newFillColor) {
     hourNumber1.style.fill = newFillColor;
     hourNumber2.style.fill = newFillColor;
     minuteNumber1.style.fill = newFillColor;
     minuteNumber2.style.fill = newFillColor;
 }
+
+/* -------- SETTINGS -------- */
+function settingsCallback(data) {
+    if (!data) {
+      return;
+    }
+    if(data.clockNumberColor) {
+        changeClockNumberColor(data.clockNumberColor);
+    }
+}
+settings.initialize(settingsCallback);

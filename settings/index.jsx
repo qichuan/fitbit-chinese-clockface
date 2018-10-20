@@ -2,9 +2,9 @@ function Settings(props) {
     return (
       <Page>
         <Section
-          title={<Text bold align="center">Change Color</Text>}>
+          title={<Text bold align="center">Change Clock Number Color</Text>}>
           <ColorSelect
-            settingsKey="color"
+            settingsKey="clockNumberColor"
             colors={[
               {color: 'tomato'},
               {color: 'sandybrown'},

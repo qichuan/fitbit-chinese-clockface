@@ -2,7 +2,7 @@ import { settingsStorage } from "settings";
 import * as messaging from "messaging";
 import { me } from "companion";
 
-let KEY_COLOR = "color";
+let KEY_COLOR = "clockNumberColor";
 
 // Event fires when a setting is changed
 settingsStorage.onchange = function(evt) {
