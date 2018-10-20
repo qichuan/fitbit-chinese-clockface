@@ -6,12 +6,15 @@ function Settings(props) {
           <ColorSelect
             settingsKey="clockNumberColor"
             colors={[
+              {color: 'white'},
               {color: 'tomato'},
               {color: 'sandybrown'},
               {color: 'gold'},
               {color: 'aquamarine'},
+              {color: 'chartreuse'},
               {color: 'deepskyblue'},
-              {color: 'plum'}
+              {color: 'plum'},
+              {color: 'deeppink'}
             ]}
           />
         </Section>
