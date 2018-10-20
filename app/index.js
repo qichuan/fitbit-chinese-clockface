@@ -8,13 +8,22 @@ let timePage = document.getElementById("timePage");
 
 let lunarDateTextLine1 = document.getElementById("lunarDateTextLine1"); 
 let lunarDateTextLine2 = document.getElementById("lunarDateTextLine2"); 
-let lunarYearText = document.getElementById("lunarYearText");
+
+let lunarYearTextLine1 = document.getElementById("lunarYearTextLine1");
+let lunarYearTextLine2 = document.getElementById("lunarYearTextLine2");
+
+let noramlWeekDay = document.getElementById("noramlWeekDay");
+
+let normalDateTextLine1 = document.getElementById("normalDateTextLine1");
+let normalDateTextLine2 = document.getElementById("normalDateTextLine2");
 
 // The clock numbers
 let hourNumber1 = document.getElementById("hour_num_1");
 let hourNumber2 = document.getElementById("hour_num_2");
 let minuteNumber1 = document.getElementById("minute_num_1");
 let minuteNumber2 = document.getElementById("minute_num_2");
+
+let months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
 // Listen to clock tick event in one minute interval
 clock.granularity = 'minutes'; // seconds, minutes, hours
@@ -31,10 +40,19 @@ clock.ontick = function(evt) {
     minuteNumber1.href = numToImage(minutesText[0], false);
     minuteNumber2.href = numToImage(minutesText[1], false);
     
-    let date = Date.now();
+    let date = evt.date;
     let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
     lunarDateTextLine1.text = lunarDate.IMonthCn;
     lunarDateTextLine2.text = lunarDate.IDayCn;
+
+    lunarYearTextLine1.text = lunarDate.gzYear;
+    lunarYearTextLine2.text = lunarDate.Animal + "年";
+
+    noramlWeekDay.text = lunarDate.ncWeek;
+
+    let normalDateString = ("0" + date.getDay()).slice(-2) + " " + months[date.getMonth()];
+    normalDateTextLine1.text = normalDateString;
+    normalDateTextLine2.text = date.getFullYear();
 };
 
 // Change clockface color when receiving message from companion

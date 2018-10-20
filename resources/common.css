@@ -1,22 +1,9 @@
-.lunarDateText{
-    x: "25%";
+.infoText{
     width: "100%-10";
     font-family: "System-Regular";
     fill: "white";
-    font-size: "25"; 
+    font-size: "40"; 
     text-length: "16";
-    font-weight: "bold";
-    text-anchor: "middle";
-}
-
-#lunarYearText {
-    x: "75%";
-    y: "25%";
-    width: "100%-10";
-    font-family: "System-Regular";
-    fill: "white";
-    font-size: "25"; 
-    text-length: "32";
     font-weight: "bold";
     text-anchor: "middle";
 }
