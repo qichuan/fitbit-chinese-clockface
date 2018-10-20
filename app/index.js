@@ -53,8 +53,10 @@ clock.ontick = function(evt) {
         // Just after midnight
         || (hours == 0 && minutes == 0)) {
         // Perform calculation
-        lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
+        lunarDate = calendar.solar2lunar(date.getFullYear(), date.getMonth() + 1, date.getDate());
         console.log("Performed calculation at " + date);
+        lastLunarCalculationDate = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0, 0);
+        console.log("Last calculation date is " + lastLunarCalculationDate);
     }
 
     if (lunarDate) {
@@ -66,11 +68,9 @@ clock.ontick = function(evt) {
 
         noramlWeekDay.text = lunarDate.ncWeek;
 
-        let normalDateString = ("0" + date.getDay()).slice(-2) + " " + months[date.getMonth()];
+        let normalDateString = ("0" + date.getDate()).slice(-2) + " " + months[date.getMonth()];
         normalDateTextLine1.text = normalDateString;
         normalDateTextLine2.text = date.getFullYear();
-
-        lastLunarCalculationDate = date;
     }
     
 };
