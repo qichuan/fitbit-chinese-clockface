@@ -1,3 +1,6 @@
+## [1.1.2] 20 Oct 2018
+- Fix lunar calendar calculation not triggered bug
+
 ## [1.1.1] 20 Oct 2018
 - Reduce the frequency of erforming lunar calednar calcuations
 
