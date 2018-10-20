@@ -1,6 +1,7 @@
 import document from "document";
 import clock from "clock";
 import * as messaging from "messaging";
+import {calendar} from "./lunar_calendar";
 
 let hourNumber1 = document.getElementById("hour_num_1");
 let hourNumber2 = document.getElementById("hour_num_2");
@@ -11,6 +12,7 @@ clock.granularity = 'minutes'; // seconds, minutes, hours
 
 clock.ontick = function(evt) {
   
+
     let hours = evt.date.getHours();
     let minutes = evt.date.getMinutes();
 
@@ -22,6 +24,10 @@ clock.ontick = function(evt) {
     
     minuteNumber1.href = numToImage(minutesText[0], false);
     minuteNumber2.href = numToImage(minutesText[1], false);
+
+    let date = evt.date;
+    let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
+    console.log(lunarDate.gzYear);
 };
 
 function numToImage(num, bold) {
