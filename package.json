@@ -1,14 +1,14 @@
 {
-  "name": "chinese",
-  "version": "1.0.0",
+  "name": "chinese_clockface",
+  "version": "1.1.0",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "Apache License",
   "devDependencies": {
     "@fitbit/sdk": "~1.0.0",
     "@fitbit/sdk-cli": "^1.0.2"
   },
   "fitbit": {
-    "appUUID": "e700a856-eb51-4e5a-8b7d-15bc9ae28715",
+    "appUUID": "bbe06646-9d32-4952-8ad9-c84a5daa9e74",
     "appType": "clockface",
     "appDisplayName": "Chinese Clockface",
     "iconFile": "resources/icon.png",
