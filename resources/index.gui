@@ -1,9 +1,83 @@
 <svg viewport-fill="black">
   <defs>
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="styles.css" />
   </defs>
-  <image id="hour_num_1" href="img/bold_num_0.png" class="clockText"/>
-  <image id="hour_num_2" href="img/bold_num_0.png" class="clockText"/>
-  <image id="minute_num_1" href="img/light_num_0.png" class="clockText"/>
-  <image id="minute_num_2" href="img/light_num_0.png" class="clockText"/>
+  
+  <!-- The left upper quadrant -->
+  <text id="lunarYearTextLine1" x="25%" y="25%" class="infoText" />
+  <text id="lunarYearTextLine2" x="25%" y="40%" class="infoText" />
+
+  <!-- The right upper quadrant -->
+  <text id="lunarDateTextLine1" x="75%" y="25%" class="infoText" />
+  <text id="lunarDateTextLine2" x="75%" y="40%" class="infoText" />
+
+  <!-- The left lower quadrant -->
+  <text id="noramlWeekDay" x="25%" y="75%" class="infoText" />
+
+  <!-- The right lower quadrant -->
+  <text id="normalDateTextLine1" x="75%" y="70%" class="infoText"/>
+  <text id="normalDateTextLine2" x="75%" y="85%" class="infoText"/>
+
+  <!-- The clock face -->
+  <!-- The left upper quadrant -->
+  <rect fill="black" x="0" y="0" width="50%" height="50%" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5"/>
+    <image id="hour_num_1" href="img/bold_num_0.png" class="clockImage">
+      <!-- Fade out animation -->
+      <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+      <!-- Fade int animation after 2 seconds-->
+      <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+    </image>
+  </rect>
+
+  <!-- The right upper quadrant -->
+  <rect fill="black" x="50%" y="0" width="50%" height="50%" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5"/>
+    <image id="hour_num_2" href="img/bold_num_0.png" class="clockImage">
+      <!-- Fade out animation -->
+      <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+      <!-- Fade int animation after 2 seconds-->
+      <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+    </image>
+  </rect>
+
+
+  <!-- The left lower quadrant -->
+  <rect fill="black" x="0%" y="50%" width="50%" height="50%" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5"/>
+    <image id="minute_num_1" href="img/light_num_0.png" class="clockImage">
+      <!-- Fade out animation -->
+      <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+      <!-- Fade int animation after 2 seconds-->
+      <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+    </image>
+  </rect>
+
+  <!-- The right lower quadrant -->
+  <rect fill="black" x="50%" y="50%" width="50%" height="50%" pointer-events="visible">
+    <!-- Fade out animation -->
+    <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+    <!-- Fade int animation after 2 seconds-->
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5"/>
+    <image id="minute_num_2" href="img/light_num_0.png" class="clockImage">
+      <!-- Fade out animation -->
+      <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+      <!-- Fade int animation after 2 seconds-->
+      <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+    </image>
+  </rect>
+    
+  <!-- The date info !-->
+  <!-- <use id="dateInstance" href="#date" width="100%" height="100%" /> -->
+
 </svg>

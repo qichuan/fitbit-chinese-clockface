@@ -4,10 +4,10 @@
   fill: black;
 }
 
-.clockText {
+.clockImage {
   width: 120;
   height: 120;
-  fill: white
+  fill: white;
 }
 
 #hour_num_1 {
