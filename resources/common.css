@@ -1,6 +1,5 @@
-#lunarDateText{
+.lunarDateText{
     x: "25%";
-    y: "25%";
     width: "100%-10";
     font-family: "System-Regular";
     fill: "white";

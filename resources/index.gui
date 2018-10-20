@@ -4,16 +4,26 @@
     <link rel="stylesheet" href="styles.css" />
   </defs>
   
-  <text id="lunarDateText">ABCD</text>
+  <text id="lunarDateTextLine1" y="25%" class="lunarDateText">ABCD</text>
+  <text id="lunarDateTextLine2" y="35%" class="lunarDateText">ABCD</text>
   <text id="lunarYearText">ABCD</text>
 
   <!-- The clock face -->
-  <image id="hour_num_1" href="img/bold_num_0.png" class="clockImage" pointer-events="visible">
+  <!-- The left upper quadrant -->
+  <rect fill="black" x="0" y="0" width="50%" height="50%" pointer-events="visible">
     <!-- Fade out animation -->
     <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
     <!-- Fade int animation after 2 seconds-->
-    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
-  </image>
+    <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5"/>
+    <image id="hour_num_1" href="img/bold_num_0.png" class="clockImage">
+      <!-- Fade out animation -->
+      <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />
+      <!-- Fade int animation after 2 seconds-->
+      <animate attributeName="opacity"  begin="click+2" to="1" from="0" dur="0.5" />
+    </image>
+  </rect>
+  
+  <!-- The right upper quadrant -->
   <image id="hour_num_2" href="img/bold_num_0.png" class="clockImage" pointer-events="visible">
     <!-- Fade out animation -->
     <animate attributeName="opacity"  begin="click" from="1" to="0" dur="0.5" />

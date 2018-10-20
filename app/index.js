@@ -6,7 +6,8 @@ import { numToImage } from "./utils";
 
 let timePage = document.getElementById("timePage");
 
-let lunarDateText = document.getElementById("lunarDateText"); 
+let lunarDateTextLine1 = document.getElementById("lunarDateTextLine1"); 
+let lunarDateTextLine2 = document.getElementById("lunarDateTextLine2"); 
 let lunarYearText = document.getElementById("lunarYearText");
 
 // The clock numbers
@@ -32,7 +33,8 @@ clock.ontick = function(evt) {
     
     let date = Date.now();
     let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
-    lunarDateText.text = lunarDate.IMonthCn + "\n" + lunarDate.IDayCn;
+    lunarDateTextLine1.text = lunarDate.IMonthCn;
+    lunarDateTextLine2.text = lunarDate.IDayCn;
 };
 
 // Change clockface color when receiving message from companion
