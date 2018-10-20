@@ -32,20 +32,8 @@ clock.ontick = function(evt) {
     
     let date = Date.now();
     let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
-    lunarDateText.text = lunarDate.IMonthCn + lunarDate.IDayCn;
+    lunarDateText.text = lunarDate.IMonthCn + "\n" + lunarDate.IDayCn;
 };
-
-// hourNumber1.onclick = function(e) {
-//     let date = Date.now();
-//     let lunarDate = calendar.solar2lunar(date.year, date.monthIndex + 1, date.day);
-//     console.log(lunarDate.gzYear);
-//     lunarDateText.text = lunarDate.IMonthCn + lunarDate.IDayCn;
-//     setTimeout(function() {
-//         lunarDateText.text="";
-//     }, 2000);
-//     //lunarYearText.text = "戌";//lunarDate.gzYear + "["+ lunarDate.Animal + "]" + "年";
-//     //dateInstance.animate('enable');
-// }
 
 // Change clockface color when receiving message from companion
 messaging.peerSocket.onmessage = function(evt) {
