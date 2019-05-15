@@ -1,3 +1,6 @@
+## [1.1.3] 15 May 2019
+- Support Fitbit Versa Lite
+
 ## [1.1.2] 20 Oct 2018
 - Fix lunar calendar calculation not triggered bug
 
