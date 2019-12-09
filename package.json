@@ -4,8 +4,8 @@
   "private": true,
   "license": "Apache License",
   "devDependencies": {
-    "@fitbit/sdk": "~3.1.0",
-    "@fitbit/sdk-cli": "~1.6.0"
+    "@fitbit/sdk": "~4.0.0",
+    "@fitbit/sdk-cli": "^1.7.0"
   },
   "fitbit": {
     "appUUID": "bbe06646-9d32-4952-8ad9-c84a5daa9e74",
@@ -17,7 +17,8 @@
     "buildTargets": [
       "higgs",
       "meson",
-      "gemini"
+      "gemini",
+      "mira"
     ],
     "i18n": {}
   },
